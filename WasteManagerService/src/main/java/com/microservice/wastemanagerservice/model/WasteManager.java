@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -25,8 +26,9 @@ public class WasteManager {
     private String name;
     private String nif;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<WasteCenterAuthorization> authorizations;
+    @OneToMany(targetEntity = WasteCenterAuthorization.class,fetch = FetchType.LAZY, mappedBy = "wasteManager")
+    @Builder.Default
+    private List<WasteCenterAuthorization> authorizations = new ArrayList<>();
 
     private Boolean isEnabled = true;
 

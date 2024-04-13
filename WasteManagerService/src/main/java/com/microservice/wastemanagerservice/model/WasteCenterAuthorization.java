@@ -14,4 +14,6 @@ public class WasteCenterAuthorization {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String authorizationNumber;
+    @ManyToOne(targetEntity = WasteManager.class)
+    private WasteManager wasteManager;
 }

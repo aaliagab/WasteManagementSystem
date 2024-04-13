@@ -1,3 +1,9 @@
 
-T
-java:S1128"2Remove this unused import 'org.mapstruct.Mapping'.(•Š–øûÿÿÿÿ8§Á¸²í1
+£
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "dto".(©š”òýÿÿÿÿ8‚ï°Çí1J$c66862ba-fba9-4c0c-818f-1c33a69c0d10
+§
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "request".(ûŒ±‰ýÿÿÿÿ8à‡ÖÇí1J$9f19ba5e-f109-445b-ab7a-82653f581b07
+•
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8ºï°Çí1J$2c9d49eb-2a4e-4262-b8bf-1ecc38b2064b
+~
+java:S1612";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8»ï°Çí1J$1c9c7742-61db-43d8-ba64-bd25b3769cfc

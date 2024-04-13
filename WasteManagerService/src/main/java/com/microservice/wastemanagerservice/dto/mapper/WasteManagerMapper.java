@@ -1,18 +1,39 @@
 package com.microservice.wastemanagerservice.dto.mapper;
 
+import com.microservice.wastemanagerservice.dto.WasteCenterAuthorizationDto;
 import com.microservice.wastemanagerservice.dto.WasteManagerDto;
+import com.microservice.wastemanagerservice.dto.request.WasteCenterAuthorizationRequest;
+import com.microservice.wastemanagerservice.model.WasteCenterAuthorization;
 import com.microservice.wastemanagerservice.model.WasteManager;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
+@Component
+public class WasteManagerMapper implements IMapper<WasteManager,WasteManagerDto>{
+    private final WasteCenterAuthorizationMapper authorizationMapper;
 
-@Mapper
-public interface WasteManagerMapper {
-    WasteManagerMapper INSTANCE = Mappers.getMapper(WasteManagerMapper.class);
-    WasteManager dtoToEntity(WasteManagerDto dto);
-    WasteManagerDto entityToDto(WasteManager entity);
+    public WasteManagerMapper(WasteCenterAuthorizationMapper authorizationMapper) {
+        this.authorizationMapper = authorizationMapper;
+    }
 
-    List<WasteManagerDto> entityToDto(List<WasteManager> entity);
+    @Override
+    public WasteManagerDto mapToDto(WasteManager m) {
+        List<WasteCenterAuthorizationRequest> wasteCenterAuthorizationRequestList = m.getAuthorizations().stream()
+                .map(authorizationMapper::mapToRequest)
+                .collect(Collectors.toList());
+
+        WasteManagerDto dto = WasteManagerDto.builder()
+                .name(m.getName())
+                .nif(m.getNif())
+                .isEnabled(m.getIsEnabled())
+                .authorizations(wasteCenterAuthorizationRequestList)
+                .build();
+        return dto;
+    }
+
+    @Override
+    public List<WasteManagerDto> mapToDtoList(List<WasteManager> list) {
+        return list.stream().map(obj->mapToDto(obj)).collect(Collectors.toList());
+    }
 }

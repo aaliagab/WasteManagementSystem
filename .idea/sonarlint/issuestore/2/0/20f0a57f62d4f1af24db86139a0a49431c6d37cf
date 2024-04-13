@@ -1,5 +1,9 @@
 
+•
+java:S62043"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8 ™ĞÉí1J$5cd7ffc6-a9ec-468e-98f3-8b78626a5d5b
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8­™ĞÉí1J$f1b373a8-fa56-4413-bfa7-d80c8f87a539
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ºô©°í1J$29179925-cf9b-465d-aefa-d31bb792ab25
-Q
-java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ş¯²í1
+java:S1068"BRemove this unused "wasteCenterAuthorizationMapper" private field.(ÊÌåÇ8éÕºÉí1J$5e1e1c54-423f-4df7-af4f-69d941492d09
+|
+java:S1068"4Remove this unused "NO_WASTE_MANAGER" private field.(ÜÎÆ×ûÿÿÿÿ8éÕºÉí1J$430b198c-8489-44ad-a038-0e72431abaa3

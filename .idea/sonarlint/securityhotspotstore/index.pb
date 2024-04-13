@@ -41,3 +41,15 @@ jWasteManagerService/src/main/java/com/microservice/wastemanagerservice/WasteMan
 gWasteManagerService/src/main/java/com/microservice/wastemanagerservice/configuration/SwaggerConfig.java,6\8\68aa0f6a9d95b33ec3f912fe32a5d6dbef01d4de
 ¶
 vWasteManagerService/src/main/java/com/microservice/wastemanagerservice/controller/NoResourceFoundExceptionHandler.java,1\5\15485af6b63595d94f56b47cfa932e26a796f370
+é
+^WasteManagerService/src/main/java/com/microservice/wastemanagerservice/dto/mapper/IMapper.java,5\5\55dd0c7f722434817e4511b87f9a465120da2e35
+ß
+wWasteManagerService/src/main/java/com/microservice/wastemanagerservice/dto/request/WasteCenterAuthorizationRequest.java,5\b\5bdf8f5adea9c058ed497cd3196c64228ab419c1
+õ
+kWasteManagerService/src/main/java/com/microservice/wastemanagerservice/dto/request/WasteManagerRequest.java,5\8\58029eee9f2809bb8206b4baff65ae3f27b0cdf0
+ù
+mWasteManagerService/src/main/java/com/microservice/wastemanagerservice/dto/response/WasteManagerResponse.java,4\f\4f62b53c764454ceb386034117c92858035f40e9
+§
+tWasteManagerService/src/main/java/com/microservice/wastemanagerservice/exceptions/WasteManagerNotFoundException.java,8\e\8ee0e2ff1b89f5d987396f2fa913ef7301e401cc
+±
+ÄWasteManagerService/src/main/java/com/microservice/wastemanagerservice/exceptions/WasteCenterAuthorizationNotFoundException.java,c\1\c1de6a2ae1970273ef0e48df3d2a443016ba158b

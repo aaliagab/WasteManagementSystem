@@ -1,8 +1,11 @@
 package com.microservice.wastemanagerservice.controller;
 
 import com.microservice.wastemanagerservice.dto.WasteCenterAuthorizationDto;
+import com.microservice.wastemanagerservice.dto.request.WasteCenterAuthorizationRequest;
+import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.service.WasteCenterAuthorizationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +19,13 @@ public class WasteCenterAuthorizationController {
     private WasteCenterAuthorizationService authorizationService;
 
     @PostMapping
-    public ResponseEntity<WasteCenterAuthorizationDto> createAuthorization(@RequestBody WasteCenterAuthorizationDto authorizationDto) {
-        WasteCenterAuthorizationDto created = authorizationService.createAuthorization(authorizationDto);
-        return ResponseEntity.ok(created);
+    public ResponseEntity<?> createAuthorization(@RequestBody WasteCenterAuthorizationRequest authorizationRequest) {
+        try{
+            WasteCenterAuthorizationDto created = authorizationService.createAuthorization(authorizationRequest);
+            return ResponseEntity.ok(created);
+        }catch (WasteManagerNotFoundException ex){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
     }
 
     @PutMapping("/{id}")

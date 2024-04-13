@@ -21,12 +21,12 @@ public class WasteManagerController {
 
     @PostMapping
     @Operation(summary = "Create a new WasteManager", description = "Creates a new WasteManager and returns it.")
-    public ResponseEntity<?> createWasteManager(@Validated @RequestBody WasteManagerDto wasteManagerDto, BindingResult bindingResult) {
+    public ResponseEntity<?> createWasteManager(@Validated @RequestBody WasteManagerDto wasteManagerRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
         try {
-            WasteManagerDto created = wasteManagerService.createWasteManager(wasteManagerDto);
+            WasteManagerDto created = wasteManagerService.createWasteManager(wasteManagerRequest);
             return ResponseEntity.ok(created);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error while creating waste manager: " + e.getMessage());
