@@ -1,9 +1,11 @@
 
 •
-java:S62043"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8 ™ĞÉí1J$5cd7ffc6-a9ec-468e-98f3-8b78626a5d5b
+java:S62046"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ŞÌí1J$92be0ed2-7b31-4c4a-afd4-674b9a79896a
+•
+java:S6204X"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ğ•üî8ëÌí1J$99b42944-ba26-47bf-85e4-c3acf94f8eff
+£
+java:S1612Y"[Replace this lambda with method reference 'wasteCenterAuthorizationRepository::deleteById'.(üÃÙªûÿÿÿÿ8îÌí1J$37bfafed-0542-4fc1-8d9d-dcf9dd82ebb7
 s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8­™ĞÉí1J$f1b373a8-fa56-4413-bfa7-d80c8f87a539
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8íúĞÌí1J$cf644da0-a9e8-4990-8697-72bfc5c7a457
 …
-java:S1068"BRemove this unused "wasteCenterAuthorizationMapper" private field.(ÊÌåÇ8éÕºÉí1J$5e1e1c54-423f-4df7-af4f-69d941492d09
-|
-java:S1068"4Remove this unused "NO_WASTE_MANAGER" private field.(ÜÎÆ×ûÿÿÿÿ8éÕºÉí1J$430b198c-8489-44ad-a038-0e72431abaa3
+java:S1068"BRemove this unused "wasteCenterAuthorizationMapper" private field.(ÊÌåÇ8ñÌí1J$e61cf238-112e-411a-86df-218e15113ec4

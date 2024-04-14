@@ -1,7 +1,17 @@
 
 …
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8¼€ˆÉí1J$249faee1-e52c-4061-8074-afed6b62d528
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‰ñ†Íí1J$eb295af7-2ead-4359-9d2f-3c21117dd8e7
+v
+java:S6856"".Bind path variable "id" to a method parameter.(ü¿óüÿÿÿÿ8Šñ†Íí1J$ed906c7a-b69c-4801-a6bf-3fbdf18d415a
+z
+java:S6863'"2Set a HttpStatus code reflective of the operation.(åûƒ–ÿÿÿÿÿ8‹ñ†Íí1J$95c8f624-c55b-4644-af0d-e50620fb8e5e
+u
+java:S6863>"2Set a HttpStatus code reflective of the operation.(¡¯ê×8‹°‡Íí1J$8297196e-4e86-421e-8e18-b33f330a541d
 i
-java:S1452"&Remove usage of generic wildcard type.(ú–œ¤8Ä€ˆÉí1J$4b376ffa-07bd-47c6-a3d9-039fff74948b
-C
-java:S1452&"&Remove usage of generic wildcard type.(‹¢º²8øûÉí1
+java:S1452"&Remove usage of generic wildcard type.(ú–œ¤8ñ†Íí1J$b1bc3cc7-32cc-4574-87ce-3a0cb6eb76d4
+i
+java:S1452$"&Remove usage of generic wildcard type.(Ê´ã8’ñ†Íí1J$a9c71821-05f6-49a8-99ef-73574a7f93ba
+i
+java:S1452/"&Remove usage of generic wildcard type.(‹¢º²8”ñ†Íí1J$27068701-aa3e-49a8-b614-d3e8ab92a8d4
+n
+java:S1452;"&Remove usage of generic wildcard type.(¤šÂªşÿÿÿÿ8Êí‡Íí1J$3f39652b-01e3-43af-b706-41f0cd29e356

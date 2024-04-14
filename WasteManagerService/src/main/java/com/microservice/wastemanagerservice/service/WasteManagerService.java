@@ -3,6 +3,8 @@ package com.microservice.wastemanagerservice.service;
 import com.microservice.wastemanagerservice.dto.WasteManagerDto;
 import com.microservice.wastemanagerservice.dto.mapper.WasteCenterAuthorizationMapper;
 import com.microservice.wastemanagerservice.dto.mapper.WasteManagerMapper;
+import com.microservice.wastemanagerservice.dto.request.WasteManagerRequest;
+import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.model.WasteCenterAuthorization;
 import com.microservice.wastemanagerservice.model.WasteManager;
 import com.microservice.wastemanagerservice.repository.WasteCenterAuthorizationRepository;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,31 +61,40 @@ public class WasteManagerService {
     }
 
 
-    public WasteManagerDto updateWasteManager(Long id, WasteManagerDto dto) {
-        return  repository.findById(id)
-                .map(existingManager -> {
-                    WasteManager updatedManager = WasteManager.builder()
-                            .id(existingManager.getId())
-                            .name(dto.getName())
-                            .nif(dto.getNif())
-                            .authorizations(existingManager.getAuthorizations())
-                            .isEnabled(dto.getIsEnabled())
-                            .build();
-                    return wasteManagerMapper.mapToDto(repository.save(updatedManager));
-                }).orElse(null);
+    public WasteManagerDto updateWasteManager(Long id, WasteManagerRequest request) throws WasteManagerNotFoundException {
+        WasteManager existingManager = repository.findById(id)
+                .orElseThrow(() -> new WasteManagerNotFoundException(NO_WASTE_MANAGER));
+
+        existingManager.setName(request.getName());
+        existingManager.setNif(request.getNif());
+        existingManager.setIsEnabled(request.getIsEnabled());
+
+        WasteManager savedManager = repository.save(existingManager);
+
+        return wasteManagerMapper.mapToDto(savedManager);
     }
 
-    public WasteManagerDto findById(Long id) {
+
+    public WasteManagerDto findById(Long id) throws WasteManagerNotFoundException {
         return repository.findById(id)
                 .map(wasteManagerMapper::mapToDto)
-                .orElse(null);
+                .orElseThrow(() -> new WasteManagerNotFoundException(NO_WASTE_MANAGER));
     }
 
-    public void deleteWasteManager(Long id) {
-        repository.deleteById(id);
+
+    public void deleteWasteManager(Long id) throws WasteManagerNotFoundException {
+        Optional<WasteManager> wasteManagerOptional = repository.findById(id);
+        if(wasteManagerOptional.isPresent()){
+            List<Long> authorizationsIdList =  wasteManagerOptional.get().getAuthorizations().stream().map(obj->obj.getId()).collect(Collectors.toList());
+            authorizationsIdList.forEach(a->wasteCenterAuthorizationRepository.deleteById(a));
+            repository.deleteById(id);
+        }else{
+            throw new WasteManagerNotFoundException(NO_WASTE_MANAGER);
+        }
     }
 
     public List<WasteManagerDto> findAll(){
+
         return wasteManagerMapper.mapToDtoList(repository.findAll());
     }
 }

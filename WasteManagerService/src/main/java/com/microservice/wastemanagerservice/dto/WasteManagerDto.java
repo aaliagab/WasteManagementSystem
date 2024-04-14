@@ -11,6 +11,6 @@ import java.util.List;
 public class WasteManagerDto {
     private String name;
     private String nif;
-    private List<WasteCenterAuthorizationRequest> authorizations;
+    private List<WasteCenterAuthorizationDto> authorizations;
     private Boolean isEnabled;
 }

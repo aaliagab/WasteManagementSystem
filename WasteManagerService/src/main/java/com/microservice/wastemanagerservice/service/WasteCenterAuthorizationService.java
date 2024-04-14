@@ -3,6 +3,7 @@ package com.microservice.wastemanagerservice.service;
 import com.microservice.wastemanagerservice.dto.WasteCenterAuthorizationDto;
 import com.microservice.wastemanagerservice.dto.mapper.WasteCenterAuthorizationMapper;
 import com.microservice.wastemanagerservice.dto.request.WasteCenterAuthorizationRequest;
+import com.microservice.wastemanagerservice.exceptions.WasteCenterAuthorizationNotFoundException;
 import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.model.WasteCenterAuthorization;
 import com.microservice.wastemanagerservice.model.WasteManager;
@@ -43,14 +44,14 @@ public class WasteCenterAuthorizationService {
     }
 
     // Find an authorization by ID
-    public WasteCenterAuthorizationDto findAuthorizationById(Long id) {
+    public WasteCenterAuthorizationDto findAuthorizationById(Long id) throws WasteCenterAuthorizationNotFoundException {
         return repository.findById(id)
                 .map(authorizationMapper::mapToDto)
-                .orElse(null);
+                .orElseThrow(() -> new WasteCenterAuthorizationNotFoundException(NO_WASTE_CENTER));
     }
 
-    public WasteCenterAuthorizationDto updateAuthorization(Long id, WasteCenterAuthorizationDto dto){
-        return repository.findById(id)
+    public WasteCenterAuthorizationDto updateAuthorization(WasteCenterAuthorizationDto dto) throws WasteCenterAuthorizationNotFoundException {
+        return repository.findById(dto.getId())
                 .map(existingManager -> {
                     WasteCenterAuthorization updatedWasteCenterAuthorization = WasteCenterAuthorization.builder()
                             .id(existingManager.getId())
@@ -58,12 +59,17 @@ public class WasteCenterAuthorizationService {
                             .wasteManager(existingManager.getWasteManager())
                             .build();
                     return authorizationMapper.mapToDto(repository.save(updatedWasteCenterAuthorization));
-                }).orElse(null);
+                }).orElseThrow(() -> new WasteCenterAuthorizationNotFoundException(NO_WASTE_CENTER));
     }
 
     // Delete an authorization
-    public void deleteAuthorization(Long id) {
-        repository.deleteById(id);
+    public void deleteAuthorization(Long id) throws WasteCenterAuthorizationNotFoundException {
+        Optional<WasteCenterAuthorization> wasteCenterAuthorizationOptional = repository.findById(id);
+        if(wasteCenterAuthorizationOptional.isPresent()){
+            repository.deleteById(id);
+        }else{
+            throw new WasteCenterAuthorizationNotFoundException(NO_WASTE_CENTER);
+        }
     }
 
     // List all authorizations

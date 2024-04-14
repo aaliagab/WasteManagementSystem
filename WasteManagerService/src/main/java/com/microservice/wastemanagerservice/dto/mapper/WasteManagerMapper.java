@@ -19,15 +19,15 @@ public class WasteManagerMapper implements IMapper<WasteManager,WasteManagerDto>
 
     @Override
     public WasteManagerDto mapToDto(WasteManager m) {
-        List<WasteCenterAuthorizationRequest> wasteCenterAuthorizationRequestList = m.getAuthorizations().stream()
-                .map(authorizationMapper::mapToRequest)
+        List<WasteCenterAuthorizationDto> wasteCenterAuthorizationDtoList = m.getAuthorizations().stream()
+                .map(authorizationMapper::mapToDto)
                 .collect(Collectors.toList());
 
         WasteManagerDto dto = WasteManagerDto.builder()
                 .name(m.getName())
                 .nif(m.getNif())
                 .isEnabled(m.getIsEnabled())
-                .authorizations(wasteCenterAuthorizationRequestList)
+                .authorizations(wasteCenterAuthorizationDtoList)
                 .build();
         return dto;
     }

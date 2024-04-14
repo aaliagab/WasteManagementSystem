@@ -1,7 +1,13 @@
 
 
-java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "dto".(¸”š·8ÖîÅÁí1J$4c80058d-d2fe-449d-a6ab-f466c751f1fa
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "dto".(¸”š·8ÖîÅÁí1J$8d2cc83a-2d1c-476b-a785-db9d0c007991
 •
-java:S6204%"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8òìÕÅí1J$f842ee96-d5ac-4496-bdbe-d3eb842728e1
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8òìÕÅí1J$2fb6f160-cdd6-423c-bd66-746f91c0a22e
+•
+java:S6204%"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8ªı¦Íí1J$06940be5-cc1e-4d6a-8541-15a35c04a918
 ~
-java:S1612%";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8µ…Äí1J$f4d4dfde-311e-4e10-89e8-f0792b941c40
+java:S1612%";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8µ…Äí1J$9e5dd6bd-5cc7-49cb-8e8d-1ce8b34e1185
+
+java:S1128"mRemove this unused import 'com.microservice.wastemanagerservice.dto.request.WasteCenterAuthorizationRequest'.(‘¦·ƒıÿÿÿÿ8º¸ªÍí1
+}
+java:S1128"`Remove this unused import 'com.microservice.wastemanagerservice.model.WasteCenterAuthorization'.(çÏ—ä8º¸ªÍí1

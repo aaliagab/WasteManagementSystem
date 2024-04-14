@@ -1,6 +1,8 @@
 package com.microservice.wastemanagerservice.controller;
 
 import com.microservice.wastemanagerservice.dto.WasteManagerDto;
+import com.microservice.wastemanagerservice.dto.request.WasteManagerRequest;
+import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.service.WasteManagerService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -20,7 +21,7 @@ public class WasteManagerController {
     private WasteManagerService wasteManagerService;
 
     @PostMapping
-    @Operation(summary = "Create a new WasteManager", description = "Creates a new WasteManager and returns it.")
+    @Operation(summary = "Create a new WasteManager", description = "Creates a new WasteManager and returns it. It is not necessary to send the ID and WasteManager ID in the authorizations")
     public ResponseEntity<?> createWasteManager(@Validated @RequestBody WasteManagerDto wasteManagerRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
@@ -35,15 +36,15 @@ public class WasteManagerController {
 
     @PutMapping("/{id}")
     @Operation(summary = "Update a WasteManager", description = "Update a WasteManager and returns it.")
-    public ResponseEntity<?> updateWasteManager(@PathVariable Long id, @Validated @RequestBody WasteManagerDto wasteManagerDto, BindingResult bindingResult) {
+    public ResponseEntity<?> updateWasteManager(@PathVariable Long id, @Validated @RequestBody WasteManagerRequest wasteManagerRequest, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
         try {
-            WasteManagerDto updated = wasteManagerService.updateWasteManager(id, wasteManagerDto);
+            WasteManagerDto updated = wasteManagerService.updateWasteManager(id, wasteManagerRequest);
             return updated != null ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error while updating waste manager: " + e.getMessage());
+        } catch (WasteManagerNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
@@ -53,8 +54,8 @@ public class WasteManagerController {
         try {
             WasteManagerDto wasteManager = wasteManagerService.findById(id);
             return wasteManager != null ? ResponseEntity.ok(wasteManager) : ResponseEntity.notFound().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error retrieving waste manager: " + e.getMessage());
+        } catch (WasteManagerNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
@@ -74,9 +75,9 @@ public class WasteManagerController {
     public ResponseEntity<?> deleteWasteManager(@PathVariable Long id) {
         try {
             wasteManagerService.deleteWasteManager(id);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error deleting waste manager: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        } catch (WasteManagerNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }
