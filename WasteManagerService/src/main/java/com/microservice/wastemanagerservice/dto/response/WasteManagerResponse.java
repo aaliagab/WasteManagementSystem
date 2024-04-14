@@ -1,6 +1,7 @@
 package com.microservice.wastemanagerservice.dto.response;
 
 import com.microservice.wastemanagerservice.dto.WasteCenterAuthorizationDto;
+import com.microservice.wastemanagerservice.dto.WasteManagerAddressDto;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,4 +14,5 @@ public class WasteManagerResponse {
     private String nif;
     private List<WasteCenterAuthorizationDto> authorizations;
     private Boolean isEnabled;
+    private WasteManagerAddressDto addressDto;
 }

@@ -2,9 +2,11 @@ package com.microservice.wastemanagerservice.controller;
 
 import com.microservice.wastemanagerservice.dto.WasteManagerDto;
 import com.microservice.wastemanagerservice.dto.request.WasteManagerRequest;
+import com.microservice.wastemanagerservice.dto.response.WasteManagerResponse;
 import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.service.WasteManagerService;
 import io.swagger.v3.oas.annotations.Operation;
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -43,10 +45,12 @@ public class WasteManagerController {
             return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
         }
         try {
-            WasteManagerDto updated = wasteManagerService.updateWasteManager(id, wasteManagerRequest);
+            WasteManagerResponse updated = wasteManagerService.updateWasteManager(id, wasteManagerRequest);
             return ResponseEntity.ok(updated);
         } catch (WasteManagerNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }catch (ServiceException e){
+            return ResponseEntity.status(HttpStatus.FAILED_DEPENDENCY).body(e.getMessage());
         }
     }
 
@@ -54,10 +58,12 @@ public class WasteManagerController {
     @Operation(summary = "Get a WasteManager", description = "Find a WasteManager by id and returns it.")
     public ResponseEntity<?> getWasteManagerById(@PathVariable Long id) {
         try {
-            WasteManagerDto wasteManager = wasteManagerService.findById(id);
+            WasteManagerResponse wasteManager = wasteManagerService.findById(id);
             return ResponseEntity.ok(wasteManager);
         } catch (WasteManagerNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }catch (ServiceException e){
+            return ResponseEntity.status(HttpStatus.FAILED_DEPENDENCY).body(e.getMessage());
         }
     }
 
@@ -65,7 +71,7 @@ public class WasteManagerController {
     @Operation(summary = "Get all WasteManagers", description = "Get all WasteManagers from DB.")
     public ResponseEntity<?> getAllWasteManagers() {
         try {
-            List<WasteManagerDto> wasteManagers = wasteManagerService.findAll();
+            List<WasteManagerResponse> wasteManagers = wasteManagerService.findAll();
             return ResponseEntity.ok(wasteManagers);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error retrieving all waste managers: " + e.getMessage());

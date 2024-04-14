@@ -1,0 +1,7 @@
+
+£
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "dto".(ğÔ¾êùÿÿÿÿ8¼ïößí1J$e4ed0a6e-94e0-47e8-afcc-61d82049a04f
+•
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8œäîæí1J$e28565ee-f42f-45d9-9389-5c0c8b1dffd5
+~
+java:S1612";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8äîæí1J$6f10947b-c5bc-4671-80dc-2ddb4eaa0161

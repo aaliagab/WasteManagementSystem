@@ -1,13 +1,20 @@
 
 
-java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "dto".(¸”š·8ÖîÅÁí1J$8d2cc83a-2d1c-476b-a785-db9d0c007991
+java:S1488 "[Immediately return this expression instead of assigning it to the temporary variable "dto".(¸”š·8›£¼êí1J$22b2b99b-9eaa-4dbc-a2d2-333950c06894
 •
-java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8òìÕÅí1J$2fb6f160-cdd6-423c-bd66-746f91c0a22e
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ø£¼êí1J$b1c8fc36-d64e-4817-b731-3cb4a0699f95
 •
-java:S6204%"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8ªı¦Íí1J$06940be5-cc1e-4d6a-8541-15a35c04a918
+java:S6204+"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÿáêÔ8Ü£¼êí1J$165edcbb-e47d-4f18-be50-10bfc7d1a0f1
 ~
-java:S1612%";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8µ…Äí1J$9e5dd6bd-5cc7-49cb-8e8d-1ce8b34e1185
-
-java:S1128"mRemove this unused import 'com.microservice.wastemanagerservice.dto.request.WasteCenterAuthorizationRequest'.(‘¦·ƒıÿÿÿÿ8º¸ªÍí1
-}
-java:S1128"`Remove this unused import 'com.microservice.wastemanagerservice.model.WasteCenterAuthorization'.(çÏ—ä8º¸ªÍí1
+java:S1612+";Replace this lambda with method reference 'this::mapToDto'.(ÿáêÔ8İ£¼êí1J$bd9faedb-5870-4bfc-a426-19351617c808
+•
+java:S62041"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8à£¼êí1J$a95d9a8d-7c1a-4294-be7f-51e3d97df802
+®
+java:S62016"fReplace this instanceof check and cast with 'instanceof WasteManagerAddressDto wastemanageraddressdto'(†ôË‘ûÿÿÿÿ8ã£¼êí1J$a070a9fa-9961-4cbd-a363-680fd8984158
+|
+java:S19057"9Remove this unnecessary cast to "WasteManagerAddressDto".(®ó·ó8ä£¼êí1J$02066bc7-159f-4ed1-a25f-543fa0558c8c
+~	java:S1259"<This block of commented-out lines of code should be removed.(çÊ¿8æ£¼êí1J$5f807a45-0591-4ce3-889f-1b764a786820
+•
+java:S6204O"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(“Ãöˆ8ê£¼êí1J$213caac9-5ff2-4cd1-b706-54323bc3c60d
+ƒ
+java:S1612O"@Replace this lambda with method reference 'this::mapToResponse'.(“Ãöˆ8ì£¼êí1J$9ee26d2e-5097-43c1-8b6b-2becbe04e823

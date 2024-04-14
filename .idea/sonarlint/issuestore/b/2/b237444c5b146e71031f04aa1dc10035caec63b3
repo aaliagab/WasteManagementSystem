@@ -1,0 +1,9 @@
+
+Ï
+java:S1130?"¬Remove the declaration of thrown exception 'com.microservice.wastemanageraddressservice.exception.WasteManagerNotFoundException', as it cannot be thrown from method's body.(Ê½ë­ûÿÿÿÿ8æ£”ëí1
+[
+java:S1155@">Use isEmpty() to check whether the collection is empty or not.(…çÕ¸8ç£”ëí1
+t
+java:S6204b"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¹¯‹üýÿÿÿÿ8ï£”ëí1
+`
+java:S1612c"CReplace this lambda with method reference 'repository::deleteById'.(è“•ñ8ð£”ëí1
