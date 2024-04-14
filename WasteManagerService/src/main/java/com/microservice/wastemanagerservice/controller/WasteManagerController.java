@@ -5,7 +5,6 @@ import com.microservice.wastemanagerservice.dto.request.WasteManagerRequest;
 import com.microservice.wastemanagerservice.exceptions.WasteManagerNotFoundException;
 import com.microservice.wastemanagerservice.service.WasteManagerService;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,8 +16,11 @@ import java.util.List;
 @RequestMapping("/api/waste-managers")
 public class WasteManagerController {
 
-    @Autowired
-    private WasteManagerService wasteManagerService;
+    private final WasteManagerService wasteManagerService;
+
+    public WasteManagerController(WasteManagerService wasteManagerService) {
+        this.wasteManagerService = wasteManagerService;
+    }
 
     @PostMapping
     @Operation(summary = "Create a new WasteManager", description = "Creates a new WasteManager and returns it. It is not necessary to send the ID and WasteManager ID in the authorizations")
@@ -42,7 +44,7 @@ public class WasteManagerController {
         }
         try {
             WasteManagerDto updated = wasteManagerService.updateWasteManager(id, wasteManagerRequest);
-            return updated != null ? ResponseEntity.ok(updated) : ResponseEntity.notFound().build();
+            return ResponseEntity.ok(updated);
         } catch (WasteManagerNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
@@ -53,7 +55,7 @@ public class WasteManagerController {
     public ResponseEntity<?> getWasteManagerById(@PathVariable Long id) {
         try {
             WasteManagerDto wasteManager = wasteManagerService.findById(id);
-            return wasteManager != null ? ResponseEntity.ok(wasteManager) : ResponseEntity.notFound().build();
+            return ResponseEntity.ok(wasteManager);
         } catch (WasteManagerNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

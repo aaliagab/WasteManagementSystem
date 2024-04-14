@@ -1,17 +1,11 @@
 
-…
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÿû…Ìí1J$f6d7466e-b895-48b5-a28e-49f3bbae3e09
-z
-java:S6863-"2Set a HttpStatus code reflective of the operation.(åûƒ–ÿÿÿÿÿ8ü…Ìí1J$1023db5a-05cc-45f0-9fde-6c45ab2135dc
-z
-java:S68638"2Set a HttpStatus code reflective of the operation.(½¯±úÿÿÿÿ8ü…Ìí1J$605658f8-c984-487d-98b0-ed5f8a1a2ad1
 n
-java:S1452"&Remove usage of generic wildcard type.(¸Â÷úøÿÿÿÿ8‡ü…Ìí1J$d0f95deb-b572-49ad-9059-ead174804bba
+java:S1452"&Remove usage of generic wildcard type.(¸Â÷úøÿÿÿÿ8ÔÃçİí1J$f1f76136-82e9-49a7-afc2-1833c5692b80
 n
-java:S1452'"&Remove usage of generic wildcard type.(´×øÿÿÿÿ8‹ü…Ìí1J$d8f15356-cd33-4533-8a84-bf2c44cfdd4a
+java:S1452)"&Remove usage of generic wildcard type.(´×øÿÿÿÿ8×Ãçİí1J$35136b40-ea40-489a-bd34-57387c815869
 n
-java:S14525"&Remove usage of generic wildcard type.(¶–ÜÔøÿÿÿÿ8¦ü…Ìí1J$a5ff3c6a-9f2f-4baf-8826-1e33cc1df78a
+java:S14527"&Remove usage of generic wildcard type.(¶–ÜÔøÿÿÿÿ8ÙÃçİí1J$6e3b32f6-6c03-4e5f-ad9e-7d878f8d4b8f
 i
-java:S1452@"&Remove usage of generic wildcard type.(ıÈøÃ8©ü…Ìí1J$9567fcad-da9d-4d87-828c-7d7238df790a
+java:S1452B"&Remove usage of generic wildcard type.(ıÈøÃ8ÛÃçİí1J$ebee0adc-fb57-4845-be2e-6c06b836c35d
 n
-java:S1452K"&Remove usage of generic wildcard type.(ºÿÏŞûÿÿÿÿ8«ü…Ìí1J$94038c93-7025-4f5d-8f3b-6fcacb35badb
+java:S1452M"&Remove usage of generic wildcard type.(ºÿÏŞûÿÿÿÿ8İÃçİí1J$9ab5b603-15d6-43e0-a915-b13361ad9d56
