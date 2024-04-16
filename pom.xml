@@ -14,7 +14,13 @@
 
   <name>WasteManagementSystem</name>
   <packaging>pom</packaging>
-
+  <modules>
+    <module>WasteManagerService</module>
+    <module>WasteManagerAddressService</module>
+    <module>GatewayService</module>
+    <module>CloudConfigServer</module>
+    <module>NamingService</module>
+  </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>

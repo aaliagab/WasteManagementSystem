@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/WasteManagerService/pom.xml" />
         <option value="$PROJECT_DIR$/WasteManagerAddressService/pom.xml" />
+        <option value="$PROJECT_DIR$/CloudConfigServer/pom.xml" />
+        <option value="$PROJECT_DIR$/NamingService/pom.xml" />
+        <option value="$PROJECT_DIR$/GatewayService/pom.xml" />
       </list>
     </option>
   </component>

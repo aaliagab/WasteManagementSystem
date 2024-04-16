@@ -8,12 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WasteManagerAddressService" />
+        <module name="NamingService" />
         <module name="WasteManagerService" />
+        <module name="CloudConfigServer" />
+        <module name="GatewayService" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="CloudConfigServer" options="-parameters" />
+      <module name="GatewayService" options="-parameters" />
+      <module name="NamingService" options="-parameters" />
       <module name="WasteManagerAddressService" options="-parameters" />
       <module name="WasteManagerService" options="-parameters" />
     </option>
