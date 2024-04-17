@@ -3,9 +3,20 @@ server:
 spring:
   application:
     name: CloudConfigServer
+  profiles:
+    #active: native
+    active: dev
+    #active: prod
   cloud:
     config:
       server:
         git:
-          uri: "https://github.com/aaliagab/WasteManagementConfigurations.git"
+          #uri: https://github.com/aaliagab/WasteManagementConfigurations/
+          uri: file:///F:/Cursos%20y%20Repos/Microservices/Prueba%20tecnica/WasteManagementConfigurations
           clone-on-start: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+
